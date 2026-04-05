@@ -1,0 +1,71 @@
+﻿{
+  "name": "@irises/extension-sdk",
+  "version": "0.1.0",
+  "description": "Public SDK for Iris extensions and plugins",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./pairing": {
+      "types": "./dist/pairing/index.d.ts",
+      "import": "./dist/pairing/index.js",
+      "default": "./dist/pairing/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js",
+      "default": "./dist/utils/index.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.js",
+      "default": "./dist/plugin.js"
+    },
+    "./tool-utils": {
+      "types": "./dist/tool-utils.d.ts",
+      "import": "./dist/tool-utils.js",
+      "default": "./dist/tool-utils.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrisesAgentDev/iris-extension-sdk.git"
+  },
+  "homepage": "https://github.com/IrisesAgentDev/iris-extension-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/IrisesAgentDev/iris-extension-sdk/issues"
+  },
+  "keywords": [
+    "iris",
+    "extension",
+    "plugin",
+    "sdk"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "typescript": "^5.7.0"
+  }
+}
